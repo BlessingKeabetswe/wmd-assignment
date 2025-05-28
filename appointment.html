@@ -1,101 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appointment Form</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            text-align: center;
-        }
-        .appointment {
-            max-width: 500px;
-            margin: 50px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        .appointment h2 {
-            color: #ff6600;
-        }
-        .appointment-form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .appointment-form label {
-            font-weight: bold;
-            text-align: left;
-        }
-        .appointment-form input,
-        .appointment-form textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .btn {
-            background-color: #ff6600;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background-color: #e65c00;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Appointment | Neo Health and Wellness Centre</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .header {
+      background-color: #FF7B25;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .nav-link {
+      transition: all 0.3s ease;
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, #FF7B25 0%, #FFA64D 100%);
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, #FF7B25 0%, #FFA837 100%);
+    }
+    .form-shadow {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    .input-focus:focus {
+      border-color: #FF7B25;
+      box-shadow: 0 0 0 3px rgba(255, 123, 37, 0.2);
+    }
+  </style>
 </head>
-<body>
-    <header class="header" role="banner">
-        <div class="logo">
-            <img src="neo logo.jpg" alt="Neo Health and Wellness Center Logo">
+<body class="bg-gray-50">
+
+    <header class="header p-4">
+        <div class="container mx-auto flex items-center justify-between flex-wrap">
+            <!-- Logo Section -->
+            <div class="logo">
+                <img src="neo logo.jpg" alt="Neo Health and Wellness Logo" class="h-12" />
+            </div>
+    
+            <!-- Navigation Menu -->
+            <nav>
+                <ul class="flex flex-wrap gap-4 text-white font-medium">
+                    <li><a href="index.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">Home</a></li>
+                    <li><a href="about.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">About Us</a></li>
+                    <li><a href="services.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">Services</a></li>
+                    <li><a href="contact.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">Contact Us</a></li>
+                    <li><a href="appointment.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">Book Appointment</a></li>
+                    <li><a href="feedback.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">Feedback</a></li>
+                    <li><a href="team.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">Our Team</a></li>
+                    <li><a href="refer.html" class="hover:bg-white hover:text-orange-500 px-3 py-1 rounded">Refer A Patient</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav class="navbar" role="navigation">
-            <ul class="menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="appointment.html">Book Appointment</a></li>
-                <li><a href="feedback.html">Feedback</a></li>
-                <li><a href="team.html">Our Team</a></li>
-                <li><a href="refer.html">Refer A Patient</a></li>
-            </ul>
-        </nav>
     </header>
     
-    <!-- Appointment Form -->
-    <section class="appointment">
-        <h2>Book an Appointment</h2>
-        <form action="submit_appointment.php" method="POST" class="appointment-form">
-            <label for="full-name">Full Name:</label>
-            <input type="text" id="full-name" name="full-name" required>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+  <!-- Hero -->
+  <section class="hero-gradient text-white py-16 md:py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">Schedule Your Appointment</h1>
+      <p class="text-lg max-w-2xl mx-auto">Our team is ready to provide you with exceptional care. Book your visit today.</p>
+    </div>
+  </section>
 
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" required>
-
-            <label for="date">Preferred Appointment Date:</label>
-            <input type="date" id="date" name="date" required>
-
-            <label for="message">Additional Notes:</label>
-            <textarea id="message" name="message" rows="4"></textarea>
-
-            <button type="submit" class="btn">Submit</button>
+  <!-- Appointment Form -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 max-w-2xl">
+      <div class="form-shadow bg-white p-8 rounded-lg">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Book Appointment</h2>
+        <form>
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+            <input type="text" class="w-full px-4 py-2 border rounded-md input-focus" placeholder="Enter your full name">
+          </div>
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+            <input type="email" class="w-full px-4 py-2 border rounded-md input-focus" placeholder="Enter your email">
+          </div>
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+            <input type="tel" class="w-full px-4 py-2 border rounded-md input-focus" placeholder="Enter your phone number">
+          </div>
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Date</label>
+            <input type="date" class="w-full px-4 py-2 border rounded-md input-focus">
+          </div>
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Time</label>
+            <input type="time" class="w-full px-4 py-2 border rounded-md input-focus">
+          </div>
+          <div class="mb-6">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Service Needed</label>
+            <select class="w-full px-4 py-2 border rounded-md input-focus">
+              <option>Wound Care</option>
+              <option>Ostomy Care</option>
+              <option>Continence Care</option>
+              <option>General Consultation</option>
+            </select>
+          </div>
+          <button type="submit" class="w-full bg-orange-500 text-white py-3 rounded-md hover:bg-orange-600 font-semibold">Submit Appointment</button>
         </form>
-    </section>
-    <footer>
-        <p>&copy; 2025 Neo Health and Wellness Center. All rights reserved.</p>
-    </footer>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white pt-12 pb-8">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div>
+                <img src="neo-logo.jpg" alt="Neo Health Logo" class="h-12 mb-4">
+                <p class="text-gray-400">Compassionate care for wound management, ostomy care, and continence care in Gaborone, Botswana.</p>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                    <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300">About Us</a></li>
+                    <li><a href="services.html" class="text-gray-400 hover:text-white transition duration-300">Services</a></li>
+                    <li><a href="team.html" class="text-gray-400 hover:text-white transition duration-300">Our Team</a></li>
+                    <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Services</h3>
+                <ul class="space-y-2">
+                    <li><a href="wound-care.html" class="text-gray-400 hover:text-white transition duration-300">Wound Care</a></li>
+                    <li><a href="ostomy-care.html" class="text-gray-400 hover:text-white transition duration-300">Ostomy Care</a></li>
+                    <li><a href="professional-nursing.html" class="text-gray-400 hover:text-white transition duration-300">Nursing Services</a></li>
+                    <li><a href="continence-care.html" class="text-gray-400 hover:text-white transition duration-300">Continence Care</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                <ul class="space-y-3 text-gray-400">
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                        <span>Gaborone West Plot 16424<br>Nossop Cres, Gaborone West Ext 48<br>Botswana</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-phone-alt mr-3"></i>
+                        <a href="tel:+26771823042" class="hover:text-white transition duration-300">+267 71 823 042</a>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-envelope mr-3"></i>
+                        <a href="mailto:neohealth.wellnesscenter@gmail.com" class="hover:text-white transition duration-300">neohealth.wellnesscenter@gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 mb-4 md:mb-0">© 2024 Neo Health and Wellness Center. All rights reserved.</p>
+            <div class="flex space-x-6">
+                <a href="privacy.html" class="text-gray-400 hover:text-white transition duration-300 text-sm">Privacy Policy</a>
+                <a href="terms.html" class="text-gray-400 hover:text-white transition duration-300 text-sm">Terms of Service</a>
+                <a href="accessibility.html" class="text-gray-400 hover:text-white transition duration-300 text-sm">Accessibility</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+  <!-- Script -->
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-button').addEventListener('click', function () {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+  </script>
 </body>
 </html>
